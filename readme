@@ -1,0 +1,46 @@
+**Star Classification Project**
+
+This project aims to classify stars based on their various properties using a machine learning model. 
+The project involves data preprocessing, model training, hyperparameter tuning, and generating visualizations to evaluate the model's performance.
+
+dataset used from kaggle:
+    https://www.kaggle.com/datasets/deepu1109/star-dataset
+
+# Setup and Installation
+Prerequisites:
+Python 3.11
+Docker
+
+## Install Python Dependencies (3 steps)
+
+# Step 1: Create virtual environment
+python -m venv env
+
+# step 2: Activate the virtual environment
+
+On Windows
+.\env\Scripts\activate
+
+On macOS and Linux
+source env/bin/activate
+
+# step 3: install required python packages
+pip install -r requirements.txt
+
+## Running with docker (2 steps)
+
+# step 1: Build the docker image
+docker build -t star_classification_project .
+
+# step 2: run the docker container
+docker run -v $(pwd)/output:/app/output star_classification_project
+
+-v $(pwd)/output:/app/output mounts the output directory from your host machine to the container. This ensures that any files saved to /app/output inside the container are accessible in the output directory on your host machine.
+
+## Accessing the output
+
+After running the container, the visualizations will be saved in the output directory on your host machine:
+
+confusion_matrix.png
+roc_curve.png
+feature_importances.png
